@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Elegibility",
+            "request": "launch",
+            "mainClass": "Elegibility"
+        }
+    ]
+}

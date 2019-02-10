@@ -1,0 +1,4 @@
+{
+    "debug.internalConsoleOptions": "neverOpen",
+    "typescript.implementationsCodeLens.enabled": true
+}
