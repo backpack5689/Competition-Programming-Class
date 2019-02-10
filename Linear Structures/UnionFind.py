@@ -8,9 +8,8 @@ class UnionFind:
 	
 	#Constructor
 	def __init__(self, size):
-		self.arraySize = size
 		self.array = [int(fido) for fido in range(size)]
-		self.rankArray = [1 for _ in range(size)]
+		self.rankArray = [1]*size
 		
 	
 	#Finds if two things are connected
@@ -29,15 +28,10 @@ class UnionFind:
 	
 	#Joins 2 things together by using the same root
 	def join(self,a,b):
-		p = self.find(a)
-		q = self.find(b)
-		if self.rankArray[p] < self.rankArray[q]:
-			self.rankArray[q] += self.rankArray[p]
-			self.array[p] = q
+		if self.array[a] > self.array[b]:
+			self.array[b] = a
 		else:
-			self.rankArray[p] += self.rankArray[q]
-			self.array[q] = p
-		return
+			self.array[a] = b
 
 #Not in the class anymore, main program time!!! 
 start = time.time()
@@ -46,9 +40,6 @@ size,numOps = [int(x) for x in inputters.split()]
 MyUnion = UnionFind(size)
 for yeeters in range(numOps):
 	inputters = sys.stdin.readline()
-	if inputters == "":
-		#This bitch empty, YEET!
-		break
 	symbol,n1,n2 = [x for x in inputters.split()]
 	n1 = int(n1)
 	#print(n1)
@@ -58,10 +49,10 @@ for yeeters in range(numOps):
 		MyUnion.join(n1,n2)
 	elif symbol == "?":
 		if MyUnion.find(n1) == MyUnion.find(n2):
-			#print("yes")
+			#sys.stdout.write("yes \n")
 			pass
 		else:
-			#print("no")
+			#sys.stdout.write("no \n")
 			pass
 	else:
 		print("DONT F WITH ME, I HAVE THE POWER OF GOD AND ANIME ON MY SIDE!")
