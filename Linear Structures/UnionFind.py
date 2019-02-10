@@ -4,11 +4,14 @@ import time
 class UnionFind:
 	arraySize = 0
 	array = []
+	rankArray = []
 	
 	#Constructor
 	def __init__(self, size):
 		self.arraySize = size
 		self.array = [int(fido) for fido in range(size)]
+		self.rankArray = [1 for _ in range(size)]
+		
 	
 	#Finds if two things are connected
 	def isConnected(self,a,b):
@@ -17,9 +20,10 @@ class UnionFind:
 		else:
 			return False
 	
-	#Finds the root
+	#Finds the root (flattens)
 	def find(self,a):
 		while not(a == self.array[a]):
+			self.array[a] = self.array[self.array[a]]
 			a = self.array[a]
 		return a
 	
@@ -27,8 +31,12 @@ class UnionFind:
 	def join(self,a,b):
 		p = self.find(a)
 		q = self.find(b)
-		if not(p == q):
+		if self.rankArray[p] < self.rankArray[q]:
+			self.rankArray[q] += self.rankArray[p]
 			self.array[p] = q
+		else:
+			self.rankArray[p] += self.rankArray[q]
+			self.array[q] = p
 		return
 
 #Not in the class anymore, main program time!!! 
