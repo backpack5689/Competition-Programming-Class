@@ -71,6 +71,14 @@ public class UnionFind
 
     int find(int a)
     {
+        /*
+            Did you look at how we did it in java? It may be slower to find, but the way I did it (in python) is:
+
+            	def find(self,a):
+		            while not(a == self.array[a]):
+		            	a = self.array[a]
+		            return a
+        */
         return parents[a];
     }
 
@@ -88,7 +96,9 @@ public class UnionFind
     {
         return find(a) == find(b);
     }
-    
+    /*
+        I would go ahead and put your main() function in a new class, and let the UnionFind class refer to the object itself
+    */
     public static void main(String[] args)
     {
         Kattio sc = new Kattio(System.in);
@@ -107,6 +117,10 @@ public class UnionFind
             //sc.println(a);
             int b = sc.getInt();
             //sc.println(b);
+            /*
+                Are you sure that sc.getInt() is removing a newline? I think you may need to add 
+                sc.nextLine() (or whatever the nextline operator is for Kattio)
+            */
 
             if(C == '?')
             {
