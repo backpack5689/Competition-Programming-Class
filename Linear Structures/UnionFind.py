@@ -1,4 +1,5 @@
-import sys
+from sys import stdin
+from sys import stdout
 import time
 
 class UnionFind:
@@ -39,7 +40,7 @@ inputters = input()
 size,numOps = [int(x) for x in inputters.split()]
 MyUnion = UnionFind(size)
 for yeeters in range(numOps):
-	inputters = sys.stdin.readline()
+	inputters = stdin.readline()
 	symbol,n1,n2 = [x for x in inputters.split()]
 	n1 = int(n1)
 	#print(n1)
@@ -49,10 +50,10 @@ for yeeters in range(numOps):
 		MyUnion.join(n1,n2)
 	elif symbol == "?":
 		if MyUnion.find(n1) == MyUnion.find(n2):
-			#sys.stdout.write("yes \n")
+			#stdout.write("yes \n")
 			pass
 		else:
-			#sys.stdout.write("no \n")
+			#stdout.write("no \n")
 			pass
 	else:
 		print("DONT F WITH ME, I HAVE THE POWER OF GOD AND ANIME ON MY SIDE!")
