@@ -50,9 +50,9 @@ for yeeters in range(numOps):
 		MyUnion.join(n1,n2)
 	elif symbol == "?":
 		if MyUnion.isConnected(n1,n2):
-			print("yes")
+			#print("yes")
 		else:
-			print("no")
+			#print("no")
 	else:
 		print("DONT F WITH ME, I HAVE THE POWER OF GOD AND ANIME ON MY SIDE!")
 end = time.time()
