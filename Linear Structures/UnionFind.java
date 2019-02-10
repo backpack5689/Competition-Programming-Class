@@ -59,46 +59,51 @@ class Kattio extends PrintWriter {
 public class UnionFind
 {
     private int[] parents;
+	//This following tells you how many nodes are connected to the array
+	private int[] rankArray;
     UnionFind(int n)
     {
         parents = new int[n + 1];
-
+		rankArray = new int[n+1];
         for(int i = 0; i < n; i++)
         {
             parents[i] = i;
+			rankArray[i] = 1;
         }
     }
 
     int find(int a)
     {
-        /*
-            Did you look at how we did it in java? It may be slower to find, but the way I did it (in python) is:
-
-            	def find(self,a):
-		            while not(a == self.array[a]):
-		            	a = self.array[a]
-		            return a
-        */
-        return parents[a];
+        //This compresses your search tree (making it only 1 root), and does what it normally does
+		while(!(a == array[a]))
+		{
+			array[a] = array[array[a]];
+			a = array[a];
+		}
+        return a;
     }
 
     void union(int a , int b)
     {
         int p = find(a);
         int q = find(b);
-        if(p != q)
+        if(rankArray[p] < rankArray[q])
         {
-            parents[p] = q;
+            rankArray[q] += rankArray[p];
+			array[p] = q;
         }
+		else
+		{
+			rankArray[p] += rankArray[q];
+			array[q] = p;
+		}
     }
 
     boolean connected(int a, int b)
     {
         return find(a) == find(b);
     }
-    /*
-        I would go ahead and put your main() function in a new class, and let the UnionFind class refer to the object itself
-    */
+    
     public static void main(String[] args)
     {
         Kattio sc = new Kattio(System.in);
@@ -117,10 +122,7 @@ public class UnionFind
             //sc.println(a);
             int b = sc.getInt();
             //sc.println(b);
-            /*
-                Are you sure that sc.getInt() is removing a newline? I think you may need to add 
-                sc.nextLine() (or whatever the nextline operator is for Kattio)
-            */
+			
 
             if(C == '?')
             {

@@ -57,7 +57,7 @@ for yeeters in range(numOps):
 	if symbol == "=":
 		MyUnion.join(n1,n2)
 	elif symbol == "?":
-		if MyUnion.isConnected(n1,n2):
+		if MyUnion.find(n1) == MyUnion.find(n2):
 			#print("yes")
 			pass
 		else:
