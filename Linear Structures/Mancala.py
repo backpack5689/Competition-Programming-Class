@@ -15,18 +15,19 @@ def newBoard (boardNum):
 				changeEmptyBin = True
 				break
 		if not changeEmptyBin:
-			prevBoard.append
-		allBoards.append(currBoard)		
+			prevBoard.append(prevBoardSize+1)
+		allBoards.append(prevBoard)		
 	else:
 		allBoards.append([1])
 #Main Program
 for boardNum in range(2000):
 	newBoard(boardNum)
-print(allBoards)
 repetitions = int(input())
 for _ in range(repetitions):
 	trash, totalStones = (int(x) for x in input().split())
+	print(trash, len(allBoards[totalStones-1]), sep = " ")
 	for count in range(len(allBoards[totalStones-1])):
-		if count%10 == 0:
+		if count%10 == 0 and not(count == 0):
 			print()
 		print(allBoards[totalStones-1][count], end = " ")
+	print()
