@@ -1,4 +1,4 @@
 ECHO OFF
 cls
-python CardTrick.py
+python Mancala.py 
 pause
