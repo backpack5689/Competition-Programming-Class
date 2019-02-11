@@ -62,16 +62,16 @@ class UF
 {
 	int arraySize = 0;
 	int [] array;
-	int [] rankArray;
+	//int [] rankArray;
 	
 	public UF(int size)
 	{
 		array = new int[size];
-		rankArray = new int[size];
+		//rankArray = new int[size];
 		for(int i = 0; i < size; i++)
 		{
 			array[i] = i;
-			rankArray[i] = 1;
+			//rankArray[i] = 1;
 		}
 	}
 	
@@ -96,7 +96,7 @@ class UF
 		return a;
 	}
 	
-	public void join(int a, int b)
+	/*public void join(int a, int b)
 	{
 		int p = find(a);
         int q = find(b);
@@ -111,8 +111,21 @@ class UF
 			array[q] = p;
 		}
 	}
+	*/
 }
-
+class Stopwatch
+{
+	private final long start;
+	public Stopwatch()
+	{
+		start = System.currentTimeMillis();
+	}
+	public double elapsedTime()
+	{
+		long now = System.currentTimeMillis();
+		return (now - start) / 1000.0;
+	}
+}
 public class Ladice
 {
 	static int recursed = -1;
@@ -120,6 +133,7 @@ public class Ladice
 	static UF uf;
 	public static void main(String[] args)
 	{
+		Stopwatch time = new Stopwatch();
 		boolean completed = false;
 		Kattio io = new Kattio(System.in);
 		int numOps = io.getInt();
@@ -143,7 +157,7 @@ public class Ladice
 				//io.println("If 2");
 				completed = true;
 			}
-			else if(needRecursion(n1,n2))
+			else if(!completed)
 			{
 				recursed = 0;
 				Recurse(n1, n2); 
@@ -168,6 +182,7 @@ public class Ladice
 			completed = false;
 			recursed = -1;
 		}
+		//io.println(time.elapsedTime());
 		io.close();
 	}
 	public static boolean needRecursion(int a, int b)
@@ -176,13 +191,13 @@ public class Ladice
 	}
 	public static void Recurse(int a, int b)
 	{
-		
-		if(uf.array[a] != a && !markedNums.contains(a))
+		boolean cont = markedNums.contains(a);
+		if(uf.array[a] != a && !cont)
 		{
 			markedNums.push(a);
 			Recurse(uf.array[a], b);
 		}
-		else if (markedNums.contains(a))
+		else if (cont)
 		{
 			markedNums.clear();
 			recursed = -1;

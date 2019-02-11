@@ -1,5 +1,6 @@
 ECHO Off
 cls
-javac Ladice.java
-java Ladice <y.txt
+REM python Gen.py >sample.in
+javac Ladice2.java 
+java Ladice2 <sample.in 
 pause
