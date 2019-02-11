@@ -1,5 +1,5 @@
 ECHO Off
 cls
-javac FenwickTree2.java
-java FenwickTree2
+javac Ladice.java
+java Ladice <y.txt
 pause
