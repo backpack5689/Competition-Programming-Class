@@ -1,4 +1,4 @@
 ECHO off
 cls
-python Veci.py 
+python Perket.py 
 pause

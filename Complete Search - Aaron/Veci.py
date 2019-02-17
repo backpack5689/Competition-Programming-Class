@@ -4,14 +4,14 @@
 def move(myInt):
 	myIntArray = [int(i) for i in str(myInt)]
 	max = -1
-	max,pos = (i,index (for index,i in enumerate(myIntArray) if i>max))
+	pos,max = max(enumerate(myIntArray), key=lambda x: x[1])
 	#And now to swap it forward, I want to take my position and swap with position + 1
 	if pos-1 >= 0:
 		tmp = myIntArray[pos-1]
 		myIntArray[pos-1] = myIntArray[pos]
 		myIntArray[pos] = tmp
 	mySubArray = []
-	mySubArray.append(x for x in myIntArray[pos:myIntArray.len())
+	mySubArray.append(x for x in myIntArray[pos:myIntArray.len()])
 	mySubArray = sort(mySubArray)
 	for i in range(pos,myIntArray.len()):
 		myIntArray[i] = mySubArray[i]
@@ -21,8 +21,9 @@ def move(myInt):
 def convert(array):
 	returnvalue = 0
 	index = 0
-	for digit in range(array.len(), 0):
+	for digit in reversed(range(array.len())):
 		returnvalue = returnvalue + (array[index] * 10**(digit)) 
+		index = index + 1
 	return returnvalue
 	
 def sort(array):
