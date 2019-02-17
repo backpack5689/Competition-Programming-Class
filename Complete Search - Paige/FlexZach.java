@@ -1,5 +1,5 @@
 import java.util.*;
-public class Flexible{
+public class FlexZach{
 	public static void main(String[] args){
 		Kattio io = new Kattio(System.in, System.out);
 		int width = io.getInt(), num = io.getInt(), temp;
