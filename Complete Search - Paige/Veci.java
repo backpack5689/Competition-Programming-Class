@@ -57,71 +57,67 @@ class Kattio extends PrintWriter {
     return ans;
     }
 }
-public class Veci
-{
-    static int factorial(int n)
-    {    
-        if (n == 0)  
-        {
-            return 1;  
-        }    
-        else  
-        {
-            return(n * factorial(n-1)); 
-        }    
-    }  
-    
-    public static void main(String[] args)
+
+public class Veci {
+    static Kattio sc = new Kattio(System.in);
+    static LinkedList<Integer> perms;
+    static int length;
+    static int x;
+
+    static void permutation(String prefix, String str) 
     {
-        Kattio sc = new Kattio(System.in, System.out);
-        String X = sc.getWord();
-        int x = Integer.parseInt(X);
-     
-        char[] numChar = new char[String.valueOf(x).length()];
-        int[] num = new int[String.valueOf(x).length()];
-
-        for(int ii = 0; ii < String.valueOf(x).length(); ii++)
+        int N = str.length();
+        if (N == 0 && prefix.length() == length) 
         {
-            numChar[ii] = X.charAt(ii);// fill array with given integers
-            //System.out.println(numChar[ii]);
-            num[ii] = (int)numChar[ii];
-         
+            int permutation = Integer.parseInt(prefix);
+            if (permutation > x)
+            {
+                perms.add(permutation);
+            }
         }
-        Arrays.sort(numChar);
-        Arrays.sort(num);
-
-        //change postions
-        for(int idek = String.valueOf(x).length() - 1; idek >= 0; idek--)
+        else 
         {
-            //System.out.println(numChar[idek]);
-            ////WHY YOU NO WORK
-            if(idek > 0)
+            for (int i = 0; i < N; i++)
             {
-                //System.out.println("before" + numChar[idek]);
-                //System.out.println("before" + numChar[idek - 1]);
-                char b = numChar[idek - 1];
-                numChar[idek - 1] = numChar[idek];
-                numChar[idek] = b;
-                ///System.out.println("after" + numChar[idek]);
-                //System.out.println("after" + numChar[idek - 1]);
+                permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1, N)); 
+                //add i value as prefix and take out from string and repeat
+                
             }
-            String output = "";
-            for(int wassup = 0; wassup < String.valueOf(x).length(); wassup++)
-            {
-                output += numChar[wassup];
-            }
-            //System.out.println(Integer.parseInt(output));
-            if(Integer.parseInt(output) > x)
-            {
-                System.out.println(Integer.parseInt(output));
-                System.exit(0);
-            }
-
         }
-        System.out.println("0");
-    
-        
-        
-        
     }
+
+    public static void main(String[] args) 
+    {
+        perms = new LinkedList<Integer>();
+        String X = sc.getWord();
+        length = X.length();
+        x = Integer.parseInt(X);
+        permutation("", X);
+
+        if(perms.isEmpty())
+        {
+          System.out.println(0);
+        } 
+        else
+        {
+            int min = 1000000;
+            for(int i = 0; i < perms.size(); i++)
+            {
+                if(perms.get(i) < min)
+                {
+                    min = perms.get(i);
+                }
+            }
+            if(min == 1000000)
+            {
+                System.out.println(0);
+            }
+            else
+            {
+                System.out.println(min);
+            }
+            
+        } 
+    }
+
 }
