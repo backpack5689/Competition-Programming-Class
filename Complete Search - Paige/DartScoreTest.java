@@ -56,13 +56,15 @@ class Kattio extends PrintWriter {
     return ans;
     }
 }
-public class DartScore
+public class DartScoreTest
 {
     public static void main(String[] args)
     {
-        
-        Kattio sc = new Kattio(System.in, System.out);
-            int N = sc.getInt(); //total score
+        //Runs through every possible number
+        for (int N = 1; N <= 180; N++)
+        {
+            Kattio sc = new Kattio(System.in, System.out);
+            //int N = sc.getInt(); //total score
 
             int[] score = new int[]{0, 0, 0};
             int[] placement = new int[]{0, 0, 0};
@@ -155,5 +157,7 @@ public class DartScore
                     }
                 }
             }
+        System.out.println("***");
+        }
     }
 }
