@@ -8,7 +8,7 @@ for _ in range(numLines):
 	line = line.split()
 	topping1 = int(line[0])
 	topping2 = int(line[1])
-	toppingRestrictions.append((1 << (topping1-1)) + (1<<(topping2-1)))
+	toppingRestrictions.append((1 << (topping1- 1)) + (1<<(topping2-1)))
 
 #Computation
 possPizzas = 2**numIngredients

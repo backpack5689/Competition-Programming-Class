@@ -56,8 +56,6 @@ class Kattio extends PrintWriter {
     return ans;
     }
 }
-
-
 public class DartScore
 {
     public static void main(String[] args)
@@ -66,7 +64,8 @@ public class DartScore
         int N = sc.getInt(); //total score
 
         int[] score = new int[]{0, 0, 0};
-        int[] placement = new int[]{1, 1, 1};
+        int[] placement = new int[]{0, 0, 0};
+        boolean completed = false;
 
         //first score and postition
         for(int i = 1; i <= 20; i++) //score
@@ -77,6 +76,7 @@ public class DartScore
                 {
                     score[0] = i;
                     placement[0] = j;
+                    completed = true;
                     break;
                 }
 
@@ -92,6 +92,7 @@ public class DartScore
                             placement[0] = j;
                             score[1] = k;
                             placement[1] = l;
+                            completed = true;
                             break;
                         }
                         
@@ -109,37 +110,49 @@ public class DartScore
                                     placement[1] = l;
                                     score[2] = m;
                                     placement[2] = n;
-                    
-                                    
-                                    for(int ii = 0; ii < 3; ii++)
-                                    {
-                                        if(placement[ii] == 1)
-                                        {
-                                            System.out.println("single " + score[ii]);
-                                        }
-                                        else if(placement[ii] == 2)
-                                        {
-                                            System.out.println("double " + score[ii]);
-                                        }
-                                        else
-                                        {
-                                            System.out.println("triple " + score[ii]);
-                                        }
-                                    }
-                                    System.exit(0);
+                                    completed = true;
+                                    break;
                                    
 
                                 }
                                
 
                             }
-                          
+                          if(completed){break;}
                         }
+                    if(completed){break;}
                     }
+                if(completed){break;}
                 }
+            if(completed){break;}
             } 
-
+    
         }
-        System.out.println("impossible");
+        if(!completed || placement[0] == 0)
+        {
+            System.out.println("impossible");
+        }
+        else
+        {
+            for(int ii = 0; ii < 3; ii++)
+            {
+                if(score[ii] == 0)
+                {
+                    break;
+                }
+                if(placement[ii] == 1)
+                {
+                    System.out.println("single " + score[ii]);
+                }
+                else if(placement[ii] == 2)
+                {
+                    System.out.println("double " + score[ii]);
+                }
+                else
+                {
+                   System.out.println("triple " + score[ii]);
+                }
+             }
+        }
     }
 }
