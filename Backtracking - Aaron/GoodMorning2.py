@@ -16,7 +16,6 @@ def canIEnter(number):
 			else:
 				return False
 	return True
-	
 def numberFinder(goalNumber):
 	if(canIEnter(goalNumber)):
 		return goalNumber
@@ -33,5 +32,4 @@ def main():
 		nextNum = int(input())
 		returnNum = numberFinder(nextNum)
 		print(returnNum)
-
 main()
