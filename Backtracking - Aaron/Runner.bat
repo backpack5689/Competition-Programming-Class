@@ -1,6 +1,6 @@
 ECHO off
 cls
-javac PageLayout.java
-java PageLayout <sample.in >test.ans
+javac FruitBasket2.java
+java FruitBasket2 <sample.in >test.ans
 FC test.ans sample.ans
 pause
