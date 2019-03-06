@@ -1,21 +1,24 @@
 ECHO off
 cls
 REM Compiler/Runner
+ECHO Begin Sequence
+ECHO Running
 REM python AudibleAudio.py <TestFiles\in1.txt >TestFiles\try1.txt
 python BrushingBoxes.py <TestFiles\in2.txt >TestFiles\try2.txt
-REM python CassetteCollection.py <TestFiles\in3.txt >TestFiles\try3.txt
+python CassetteCollection.py <TestFiles\in3.txt >TestFiles\try3.txt
 REM python DisplayDensity.py <TestFiles\in4.txt >TestFiles\try4.txt
 REM python ExistentEdges.py <TestFiles\in5.txt >TestFiles\try5.txt
 python FantasyFootball.py <TestFiles\in6.txt >TestFiles\try6.txt
 REM python GreatestGroup.py <TestFiles\in7.txt >TestFiles\try7.txt
 
+ECHO Begin Comparision
 REM Comparator
 REM ECHO AudibleAudio
 REM FC TestFiles\try1.txt TestFiles\out1.txt
 ECHO Brushing Boxes
 FC TestFiles\try2.txt TestFiles\out2.txt
-REM ECHO Cassette Collection
-REM FC TestFiles\try3.txt TestFiles\out3.txt
+ECHO Cassette Collection
+FC TestFiles\try3.txt TestFiles\out3.txt
 REM ECHO Display Density
 REM FC TestFiles\try4.txt TestFiles\out4.txt
 REM ECHO Existent Edges
