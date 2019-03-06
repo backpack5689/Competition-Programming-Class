@@ -12,22 +12,16 @@ REM python GreatestGroup.py <TestFiles\in7.txt >TestFiles\try7.txt
 REM Comparator
 REM ECHO AudibleAudio
 REM FC TestFiles\try1.txt TestFiles\out1.txt
-REM ECHO
 ECHO Brushing Boxes
 FC TestFiles\try2.txt TestFiles\out2.txt
-REM ECHO
 REM ECHO Cassette Collection
 REM FC TestFiles\try3.txt TestFiles\out3.txt
-REM ECHO
 REM ECHO Display Density
 REM FC TestFiles\try4.txt TestFiles\out4.txt
-REM ECHO
 REM ECHO Existent Edges
 REM FC TestFiles\try5.txt TestFiles\out5.txt
-ECHO
 ECHO Fantasy Football
 FC TestFiles\try6.txt TestFiles\out6.txt
-REM ECHO
 REM ECHO Greatest Group
 REM FC TestFiles\try7.txt TestFiles\out7.txt
 Pause
