@@ -16,7 +16,7 @@ def construct(arr, n):
 	for i in range(n): 
 		updateBit(BITTree, n, i+1, arr[i]) 
 	return BITTree 
-
+  
 #---------------------------------------------------------------------------	
 
 repetitions = int(input())
