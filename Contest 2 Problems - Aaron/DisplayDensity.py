@@ -6,4 +6,5 @@ for _ in range(int(input())):
 	max = sum(length) + (len(Ad)-1)
 	cost = 999999999
 	for windowSize in range(min, max+1):
+		window = []
 		
