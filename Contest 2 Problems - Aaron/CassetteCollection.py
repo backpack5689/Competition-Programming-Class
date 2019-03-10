@@ -34,7 +34,7 @@ for _ in range(repetitions):
 		startPos = positionArray[operation-1]
 		endPos = endPos+1
 		updateBit(myFW, len(boolArray), startPos, -1)
-		updateBit(myFW, len(boolArray), endPos, 1)
+		updateBit(myFW, len(boolArray), endPos , 1)
 		numCassettesSkipped = getSum(myFW, endPos-1) - getSum(myFW, startPos)
 		positionArray[operation-1] = endPos
 		if operationsToComplete == 0:
