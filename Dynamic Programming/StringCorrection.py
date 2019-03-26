@@ -5,7 +5,7 @@
 a = ""
 b = ""
 max = 9999
-memo = [[max]*100]*100
+memo = [[]]
 def dist(i, j):
 	global a,b,max,memo
 	if not (memo[i][j] == max):
@@ -18,16 +18,15 @@ def dist(i, j):
 		return len(a)-i
 	elif a[i] == b[j]:
 		memo[i][j] = dist(i+1, j+1)
-		return memo[i][j]
+		return dist(i+1, j+1)
 	else:
 		memo[i][j] = 1+min({dist(i,j+1),dist(i+1,j),dist(i+1,j+1)})
 		return memo[i][j]
 
 def main():
-	global a
-	global b
-	global memo
+	global a, b, max, memo
 	for _ in range(int(input())):
+		memo = [[max]*1000]*1000
 		a = input()
 		b = input()
 		print(dist(0,0))
