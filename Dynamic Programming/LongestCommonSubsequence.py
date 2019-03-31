@@ -5,7 +5,7 @@
 #find the number
 a = ""
 b = ""
-
+memo = [[]]
 #The function is just looking for/
 #returning the number of characters
 def lcs(i, j):
