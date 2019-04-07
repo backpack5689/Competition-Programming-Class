@@ -7,28 +7,30 @@ a = ""
 b = ""
 max = 9999999
 memo = [[]]
-def dist(i, j):
-	global a,b,max,memo
-	if not (memo[i][j] == max):
-		return memo[i][j]
-	elif i > (len(a)-1):
-		memo[i][j] = len(b)-j
-		return memo[i][j]
-	elif j > (len(b)-1):
-		memo[i][j] = len(a)-i
-		return memo[i][j]
-	elif a[i] == b[j]:
-		memo[i][j] = dist(i+1, j+1)
-		return memo[i][j]
-	else:
-		memo[i][j] = 1+min(dist(i+1,j+1),dist(i,j+1),dist(i+1,j))
-		return memo[i][j]
+cost = [0,1,1,1] #Array is Skip, Delete, Insert, Replace
+def dist():
+	global a,b,max,memo,cost
+	for i in range(len(a)):
+		for j in range(len(b)):
+			if i == 0 and j == 0: #Starting with empty string compared to an empty string
+				memo[i][j] = 0
+			else:
+				if i == 0: #Inserting to an empty string
+					memo[i][j] = memo[i][j-1]+cost[2]
+				elif j == 0: #Deleting to an empty string
+					memo[i][j] = memo[i-1][j]+cost[1]
+				else:
+					if a[i] == b[j]: #Skiping
+						memo[i][j] = memo[i-1][j-1]
+					else:
+						memo[i][j] = min((memo[i-1][j]+cost[1]),(memo[i][j-1]+cost[2]),(memo[i-1][j-1]+cost[3]))
 
 def main():
-	global a, b, max, memo
+	global a, b, max, memo, cost
 	for _ in range(int(input())):
-		a = input()
-		b = input()
-		memo = [[max for y in range(len(a)+1)] for x in range(len(b)+1)]
-		print(dist(0,0))
+		a = " " + input()
+		b = " " + input()
+		memo = [[max for y in range(len(a))] for x in range(len(b))]
+		dist()
+		print(memo[len(a)][len(b)])
 main()
