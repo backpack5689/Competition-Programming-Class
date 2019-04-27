@@ -1,4 +1,4 @@
-#Fenwick Class
+#Fenwick Class, but in function form
 def getSum(BITTree,i): 
 	s = 0
 	#i = i+1
