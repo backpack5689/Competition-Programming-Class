@@ -3,17 +3,17 @@ cls
 Echo Beginning Running
 Echo.
 Echo Running 1/6
-python Longevity.py <in1.txt >try1.txt
+python Longevity.py <TestData/in1.txt >TestData/try1.txt
 Echo Running 2/6
-python Partition.py <in2.txt >try2.txt
+python Partition.py <TestData/in2.txt >TestData/try2.txt
 Echo Running 3/6
-python Fenders.py <in3.txt >try3.txt
+python Fenders.py <TestData/in3.txt >TestData/try3.txt
 Echo Running 4/6
-python Sum.py <in4.txt >try4.txt
+python Sum.py <TestData/in4.txt >TestData/try4.txt
 Echo Running 5/6
-python Painter.py <in5.txt >try5.txt
+python Painter.py <TestData/in5.txt >TestData/try5.txt
 Echo Running 6/6
-python Farmers.py <in6.txt >try6.txt
+python Farmers.py <TestData/in6.txt >TestData/try6.txt
 Echo Running Completed
 Echo.
 CD TestData
