@@ -5,7 +5,13 @@ Echo.
 Echo Running 1/6
 python Longevity.py <TestData/in1.txt >TestData/try1.txt
 Echo Running 2/6
-python Partition.py <TestData/in2.txt >TestData/try2.txt
+set starttime=%time%
+Echo Time Start: %starttime%
+python PartitionBit.py <TestData/in2.txt >TestData/try2.txt
+set endtime=%time%
+Echo Time Stop: %endtime%
+set elapsedtime=%endtime%-%starttime%
+Echo Elapsed Time: %elapsedtime%
 Echo Running 3/6
 python Fenders.py <TestData/in3.txt >TestData/try3.txt
 Echo Running 4/6
